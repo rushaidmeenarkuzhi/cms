@@ -45,8 +45,6 @@
                                                 Customer
                                             @elseif($usr->user_type == 3)
                                                 Technician
-                                            @else
-                                                Unknown
                                             @endif
                                            </td>
                                             <div class="btn-group title-quick-actions">
