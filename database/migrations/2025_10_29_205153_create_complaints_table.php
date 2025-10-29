@@ -11,16 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('transactions', function (Blueprint $table) {
+        Schema::create('complaints', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('phone');
-            $table->date('date');
-            $table->string('address');
-            $table->string('location');
-            $table->integer('status')->default(0);
+            $table->string('ticket_id');
+            $table->foreignId('user_id')->constrained();
+            $table->string('subject');
+            $table->string('description');
+            $table->string('status');
             $table->timestamps();
             $table->softDeletes();
+
         });
     }
 
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('transactions');
+        Schema::dropIfExists('complaints');
     }
 };

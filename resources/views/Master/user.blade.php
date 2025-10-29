@@ -38,7 +38,17 @@
                                             <td align="center" style="width: 20px">{{ ++$i }}</td>
                                             <td align="center" style="width: 20px">{{ $usr->name }}</td>
                                             <td align="center" style="width: 20px">{{ $usr->username }}</td>
-                                            <td align="center" style="width: 20px">{{ $usr->email }}</td>
+                                            <td align="center" style="width: 20px">
+                                            @if($usr->user_type == 1)
+                                                Admin
+                                            @elseif($usr->user_type == 2)
+                                                Customer
+                                            @elseif($usr->user_type == 3)
+                                                Technician
+                                            @else
+                                                Unknown
+                                            @endif
+                                           </td>
                                             <div class="btn-group title-quick-actions">
                                                 <td width="100px"><a href="{{ route('user.edit', $usr->id) }}"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit text-primary">
                                                             <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>

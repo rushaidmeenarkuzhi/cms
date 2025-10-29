@@ -17,7 +17,7 @@ class UserController extends Controller
     public function index()
     {
         $i = 0;
-        $users = User::where('deleted_at', null)->get();
+        $users = User::get()->all();
         return view('master.user',['users' =>$users, 'i'=>$i]);
     }
 
@@ -93,8 +93,7 @@ class UserController extends Controller
          $this->validate($request, [
             'name' => 'required',
             'username' => 'required',
-            'user_type' => 'required',
-            'password' => 'required',
+            'user_type' => 'required'
 
         ]);
 
